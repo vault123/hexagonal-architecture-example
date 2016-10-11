@@ -1,0 +1,20 @@
+{
+    "name": "mannion007/waffle-maker",
+    "description": "A PHP application that bakes waffles using Hexagonal Architecture",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "James Mannion",
+            "email": "mannion007@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Mannion007\\WaffleFactory\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/dependency-injection": "^3.1"
+    }
+}

@@ -1,0 +1,17 @@
+services:
+  waffle-server:
+    class: Mannion007\WaffleFactory\Server\RestfulApi
+    arguments:
+      - '@waffle-maker'
+
+  waffle-maker:
+    class: Mannion007\WaffleFactory\Maker\HomeMadeWaffleMaker
+    arguments:
+      - '@batter-dispenser'
+      - '@breville-oven'
+
+  batter-dispenser:
+    class: Mannion007\WaffleFactory\BatterDispenser\CheapoWaffleBatterPacket
+
+  breville-oven:
+    class: Mannion007\WaffleFactory\Oven\CheapoOven

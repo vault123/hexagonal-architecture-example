@@ -6,18 +6,18 @@
 
 namespace Mannion007\WaffleFactory\Server;
 
-use Mannion007\WaffleFactory\Maker\WaffleMakerInterface;
+use Mannion007\WaffleFactory\Maker\MakerInterface;
 
-class RestfulApi implements DispenserAdapterInterface
+class RestfulApiDispenser implements DeliveryInterface
 {
-    /** @var WaffleMakerInterface */
+    /** @var MakerInterface */
     private $waffleMaker;
 
     /**
      * RestfulApiAdapter constructor.
-     * @param WaffleMakerInterface $waffleMaker
+     * @param MakerInterface $waffleMaker
      */
-    public function __construct(WaffleMakerInterface $waffleMaker)
+    public function __construct(MakerInterface $waffleMaker)
     {
         $this->waffleMaker = $waffleMaker;
     }

@@ -8,7 +8,7 @@ namespace Mannion007\WaffleFactory\BatterDispenser;
 
 use Mannion007\WaffleFactory\Model\WaffleBatter;
 
-interface WaffleBatterDispenserInterface
+interface BatterDispenserInterface
 {
     /**
      * Dispense some waffle batter

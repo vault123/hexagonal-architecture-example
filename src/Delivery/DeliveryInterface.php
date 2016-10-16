@@ -6,7 +6,7 @@
 
 namespace Mannion007\WaffleFactory\Server;
 
-interface DispenserAdapterInterface
+interface WaffleDispenserInterface
 {
     public function dispenseWaffles(int $number);
 }

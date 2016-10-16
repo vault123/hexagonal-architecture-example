@@ -4,11 +4,11 @@
  * @link https://www.jamse.net
  */
 
-namespace Mannion007\WaffleFactory\Server;
+namespace Mannion007\WaffleFactory\Delivery;
 
 use Mannion007\WaffleFactory\Maker\MakerInterface;
 
-class RestfulApiDispenser implements DeliveryInterface
+class RestfulApiDelivery implements DeliveryInterface
 {
     /** @var MakerInterface */
     private $waffleMaker;
@@ -23,11 +23,10 @@ class RestfulApiDispenser implements DeliveryInterface
     }
 
     /**
-     * @param int $number
-     * @return string
+     * @param array $waffles
      */
-    public function dispenseWaffles(int $number)
+    public function deliverWaffles(array $waffles)
     {
-        var_dump($this->waffleMaker->makeWaffles($number));
+        var_dump($waffles);
     }
 }

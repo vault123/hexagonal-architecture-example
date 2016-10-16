@@ -1,17 +1,27 @@
 services:
-  waffle-server:
-    class: Mannion007\WaffleFactory\Server\RestfulApi
+  deliverer:
+    class: Mannion007\WaffleFactory\Delivery\RestfulApiDelivery
     arguments:
-      - '@waffle-maker'
+      - '@maker'
 
-  waffle-maker:
+  maker:
     class: Mannion007\WaffleFactory\Maker\HomeMadeWaffleMaker
     arguments:
       - '@batter-dispenser'
-      - '@breville-oven'
+      - '@cheapo-oven'
+      - '@mysql-delivery'
 
   batter-dispenser:
     class: Mannion007\WaffleFactory\BatterDispenser\CheapoWaffleBatterPacket
 
-  breville-oven:
+  cheapo-oven:
     class: Mannion007\WaffleFactory\Oven\CheapoOven
+
+  mysql-delivery:
+    class: Mannion007\WaffleFactory\Delivery\MysqlDelivery
+    arguments:
+      - '127.0.0.1'
+      - '3306'
+      - 'waffles'
+      - 'toor'
+      - 'toor'

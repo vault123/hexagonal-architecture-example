@@ -4,7 +4,7 @@
  * @link https://www.jamse.net
  */
 
-use Mannion007\WaffleFactory\Server\DispenserAdapterInterface;
+use Mannion007\WaffleFactory\Maker\MakerInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
@@ -15,6 +15,7 @@ $container = new ContainerBuilder();
 $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . DIRECTORY_SEPARATOR . 'src'));
 $loader->load('services.yml');
 
-/** @var DispenserAdapterInterface $waffleDispenser */
-$waffleDispenser = $container->get('waffle-server');
-$waffleDispenser->dispenseWaffles(5);
+/** @var MakerInterface $waffleMaker */
+$waffleMaker = $container->get('maker');
+$waffleMaker->makeWaffles(5);
+

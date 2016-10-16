@@ -6,26 +6,35 @@
 
 namespace Mannion007\WaffleFactory\Maker;
 
+use Mannion007\WaffleFactory\Delivery\DeliveryInterface;
 use Mannion007\WaffleFactory\Oven\OvenInterface;
-use Mannion007\WaffleFactory\BatterDispenser\WaffleBatterDispenserInterface;
+use Mannion007\WaffleFactory\BatterDispenser\BatterDispenserInterface;
 
-class HomeMadeWaffleMaker implements WaffleMakerInterface
+class HomeMadeWaffleMaker implements MakerInterface
 {
-    /** @var  WaffleBatterDispenserInterface */
+    /** @var  BatterDispenserInterface */
     private $batterDispenser;
 
     /** @var OvenInterface */
     private $oven;
 
+    /** @var DeliveryInterface */
+    private $delivery;
+
     /**
-     * HomeBaker constructor.
-     * @param WaffleBatterDispenserInterface $batterDispenser
+     * HomeMadeWaffleMaker constructor.
+     * @param BatterDispenserInterface $batterDispenser
      * @param OvenInterface $oven
+     * @param DeliveryInterface $delivery
      */
-    public function __construct(WaffleBatterDispenserInterface $batterDispenser, OvenInterface $oven)
-    {
+    public function __construct(
+        BatterDispenserInterface $batterDispenser,
+        OvenInterface $oven,
+        DeliveryInterface $delivery
+    ) {
         $this->batterDispenser = $batterDispenser;
         $this->oven = $oven;
+        $this->delivery = $delivery;
     }
 
     /**
@@ -36,6 +45,11 @@ class HomeMadeWaffleMaker implements WaffleMakerInterface
      */
     public function makeWaffles(int $number) : array
     {
-        return $this->oven->bakeWaffles($this->batterDispenser->dispense(), $number);
+        return $this->delivery->deliverWaffles(
+            $this->oven->bakeWaffles(
+                $this->batterDispenser->dispense(),
+                $number
+            )
+        );
     }
 }

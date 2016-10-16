@@ -7,7 +7,7 @@
 
 namespace Mannion007\WaffleFactory\Maker;
 
-interface WaffleMakerInterface
+interface MakerInterface
 {
     /**
      * Make waffles

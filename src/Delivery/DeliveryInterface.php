@@ -4,9 +4,9 @@
  * @link https://www.jamse.net
  */
 
-namespace Mannion007\WaffleFactory\Server;
+namespace Mannion007\WaffleFactory\Delivery;
 
-interface WaffleDispenserInterface
+interface DeliveryInterface
 {
-    public function dispenseWaffles(int $number);
+    public function deliverWaffles(array $waffles);
 }

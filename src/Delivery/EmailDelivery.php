@@ -6,8 +6,11 @@
 
 namespace Mannion007\WaffleFactory\Delivery;
 
-
-class EmailDelivery
+class EmailDelivery implements  DeliveryInterface
 {
+    public function deliverWaffles(array $waffles)
+    {
+
+    }
 
 }

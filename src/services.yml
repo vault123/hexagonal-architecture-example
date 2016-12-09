@@ -2,14 +2,21 @@ services:
   deliverer:
     class: Mannion007\WaffleFactory\Delivery\RestfulApiDelivery
     arguments:
-      - '@maker'
+      - '@home-maker'
 
-  maker:
-    class: Mannion007\WaffleFactory\Maker\HomeMadeWaffleMaker
+  home-maker:
+    class: Mannion007\WaffleFactory\Maker\WaffleMaker
     arguments:
-      - '@batter-dispenser'
+      - '@cheapo-batter-dispenser'
       - '@cheapo-oven'
       - '@mysql-delivery'
+
+  commercial-maker:
+      class: Mannion007\WaffleFactory\Maker\WaffleMaker
+      arguments:
+        - '@premium-batter-dispenser'
+        - '@commercial-oven'
+        - '@redis-delivery'
 
   cheapo-batter-dispenser:
     class: Mannion007\WaffleFactory\BatterDispenser\CheapoWaffleBatterPacket
@@ -19,6 +26,9 @@ services:
 
   cheapo-oven:
     class: Mannion007\WaffleFactory\Oven\CheapoOven
+
+  commercial-oven:
+      class: Mannion007\WaffleFactory\Oven\CommercialoOven
 
   mysql-delivery:
     class: Mannion007\WaffleFactory\Delivery\MysqlDelivery

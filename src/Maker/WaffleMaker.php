@@ -9,7 +9,7 @@ use Mannion007\WaffleFactory\Delivery\DeliveryInterface;
 use Mannion007\WaffleFactory\Oven\OvenInterface;
 use Mannion007\WaffleFactory\BatterDispenser\BatterDispenserInterface;
 
-class HomeMadeWaffleMaker implements MakerInterface
+class WaffleMaker implements MakerInterface
 {
     /** @var  BatterDispenserInterface */
     private $batterDispenser;

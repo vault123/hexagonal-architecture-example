@@ -3,7 +3,6 @@
  * @author James Mannion <mannion007@gmail.com>
  */
 
-use Mannion007\WaffleFactory\Maker\MakerInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;

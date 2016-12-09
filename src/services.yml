@@ -11,8 +11,11 @@ services:
       - '@cheapo-oven'
       - '@mysql-delivery'
 
-  batter-dispenser:
+  cheapo-batter-dispenser:
     class: Mannion007\WaffleFactory\BatterDispenser\CheapoWaffleBatterPacket
+
+  premium-batter-dispenser:
+      class: Mannion007\WaffleFactory\BatterDispenser\PremiumWaffleBatterPacket
 
   cheapo-oven:
     class: Mannion007\WaffleFactory\Oven\CheapoOven
@@ -25,3 +28,9 @@ services:
       - 'waffles'
       - 'toor'
       - 'toor'
+
+  redis-delivery:
+      class: Mannion007\WaffleFactory\Delivery\RedisDelivery
+      arguments:
+        - '127.0.0.1'
+        - '6379'

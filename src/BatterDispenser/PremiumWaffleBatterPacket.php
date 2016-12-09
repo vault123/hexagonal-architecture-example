@@ -7,10 +7,13 @@ namespace Mannion007\WaffleFactory\BatterDispenser;
 
 use Mannion007\WaffleFactory\Model\WaffleBatter;
 
-interface BatterDispenserInterface
+class PremiumWaffleBatterPacket implements BatterDispenserInterface
 {
     /**
      * @return WaffleBatter
      */
-    public function dispense() : WaffleBatter;
+    public function dispense() : WaffleBatter
+    {
+        return new WaffleBatter('exquisite');
+    }
 }

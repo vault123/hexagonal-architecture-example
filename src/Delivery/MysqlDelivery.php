@@ -5,15 +5,14 @@
 
 namespace Mannion007\WaffleFactory\Delivery;
 
+use Mannion007\WaffleFactory\Model\Waffle;
 
 class MysqlDelivery implements DeliveryInterface
 {
-
     /** @var \PDO $connection */
     private $conn;
 
     /**
-     * MysqlDelivery constructor.
      * @param string $host
      * @param string $port
      * @param string $database
@@ -42,10 +41,17 @@ class MysqlDelivery implements DeliveryInterface
         return sprintf('mysql:dbname=%s;host=%s;port=%s', $database, $host, $port);
     }
 
+    /**
+     * @param Waffle[] $waffles
+     */
     public function deliverWaffles(array $waffles)
     {
         $this->conn->beginTransaction();
-        $query = $this->conn->prepare('INSERT INTO waffles(waffles) VALUES (:waffles)');
-        $query->execute([':waffles' => var_dump($waffles)]);
+        /** @var Waffle $waffle */
+        foreach ($waffles as $waffle) {
+            $query = $this->conn->prepare('INSERT INTO waffles(waffle_id, waffle) VALUES (:waffle_id, :waffle)');
+            $query->execute([':waffle_id' => $waffle->waffleId, ':waffle' => json_encode($waffles)]);
+        }
+        $this->conn->commit();
     }
 }

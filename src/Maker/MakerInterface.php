@@ -9,8 +9,6 @@ namespace Mannion007\WaffleFactory\Maker;
 interface MakerInterface
 {
     /**
-     * Make waffles
-     *
      * @param int $number
      * @return array
      */

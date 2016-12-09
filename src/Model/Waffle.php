@@ -5,23 +5,24 @@
 
 namespace Mannion007\WaffleFactory\Model;
 
+use Ramsey\Uuid\Uuid;
+
 class Waffle
 {
+    public $waffleId;
     private $state;
     private $batter;
 
     /**
-     * Waffle constructor.
      * @param WaffleBatter $batter
      */
     public function __construct(WaffleBatter $batter)
     {
+        $this->waffleId = Uuid::uuid4();
         $this->batter = $batter;
     }
 
     /**
-     * Cook the waffle
-     *
      * @param int $watts
      */
     public function cook(int $watts)
@@ -32,5 +33,17 @@ class Waffle
             $this->state = 'cooked';
         }
         $this->state = 'burnt';
+    }
+
+    /**
+     * @return array
+     */
+    public function json_encode()
+    {
+        return [
+            'waffleId'  => $this->waffleId,
+            'state'     => $this->state,
+            'batter'    => $this->batter
+        ];
     }
 }

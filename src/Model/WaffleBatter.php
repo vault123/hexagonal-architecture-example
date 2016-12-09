@@ -7,4 +7,13 @@ namespace Mannion007\WaffleFactory\Model;
 
 class WaffleBatter
 {
+    private $quality;
+
+    /**
+     * @param string $quality
+     */
+    public function __construct(string $quality)
+    {
+        $this->quality = $quality;
+    }
 }

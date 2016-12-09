@@ -21,7 +21,6 @@ class HomeMadeWaffleMaker implements MakerInterface
     private $delivery;
 
     /**
-     * HomeMadeWaffleMaker constructor.
      * @param BatterDispenserInterface $batterDispenser
      * @param OvenInterface $oven
      * @param DeliveryInterface $delivery
@@ -37,8 +36,6 @@ class HomeMadeWaffleMaker implements MakerInterface
     }
 
     /**
-     * Make waffles
-     *
      * @param int $number
      * @return array
      */

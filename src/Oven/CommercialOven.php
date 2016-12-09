@@ -11,7 +11,7 @@ use Mannion007\WaffleFactory\Model\WaffleBatter;
 class CheapoOven implements OvenInterface
 {
     /** @var int $watts */
-    private $watts = 250;
+    private $watts = 500;
 
     public function bakeWaffles(WaffleBatter $batter, int $number) : array
     {
@@ -20,8 +20,8 @@ class CheapoOven implements OvenInterface
         for ($i=0; $i <= $number; $i++) {
             $waffle = new Waffle($batter);
             $waffle->cook($this->watts);
-            /** CommercialOven bakes a single waffle in 1 second */
-            sleep(1);
+            /** CheapoOven takes 10 seconds to bake a single waffle */
+            sleep(10);
             $waffles[] = $waffle;
         }
 

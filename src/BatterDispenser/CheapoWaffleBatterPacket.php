@@ -10,12 +10,10 @@ use Mannion007\WaffleFactory\Model\WaffleBatter;
 class CheapoWaffleBatterPacket implements BatterDispenserInterface
 {
     /**
-     * Dispense some waffle batter
-     *
      * @return WaffleBatter
      */
     public function dispense() : WaffleBatter
     {
-        return new WaffleBatter();
+        return new WaffleBatter('poor');
     }
 }
